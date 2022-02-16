@@ -90,7 +90,7 @@ pipeline {
             }
             post {
                 always {
-                    junit 'target/*.xml'
+                    junit allowEmptyResults: true, testResults: 'target/failsafe-reports/**/*.xml'
                 }
                 success {
                     stash(name: 'artifact', includes: 'target/*.jar')
